@@ -1,0 +1,126 @@
+<div class="home mb-5">
+  <img src="../../assets/home.svg" class="home-banner banner-desktop">
+  <img src="../../assets/home-mobile.svg" class="home-banner banner-mobile">
+  <h1 class="home-title text-primary">AG7-PROJECT</h1>
+  <div class="home-desc">
+    <p>Gérer vos projets de manière agile grâce à la méthode Kanban !</p>
+  </div>
+  <div class="home-nav mb-5">
+    <a class="btn btn-primary font-weight-bold" style="border-radius: 32px; font-size: 1.7rem;" routerLink="/project">Gérer
+      vos projets !</a>
+  </div>
+</div>
+<div class="container">
+  <div class="row pt-5 mb-5">
+    <div class="col">
+      <div class="card shadow">
+        <h2 class="card-header text-center text-light bg-primary">Méthode Kanban</h2>
+        <div class="card-body">
+          <p class="card-text">Le Kanban (terme japonais signifiant “enseigne, panneau”) facilite la collaboration entre
+            les membres de votre équipe agile.</p>
+          <p class="card-text"> C'est aussi une méthode efficace pour surveiller l'amélioration continue du produit ou
+            du service à développer. </p>
+
+          <p class="card-text">Les tâches devront passer par 5 états qui montrent leurs degrés d'avancement.
+            L'objectif étant d'avoir un projet en perpétuelle évolution, les phases <b>In progress</b>, <b>Test</b> et <b>Done</b>
+            devront posséder au maximum une tâche par membre de votre équipe afin de fluidifier l'amélioration du produit.</p>
+
+          <div class="row p-2">
+            <div class="card-deck">
+
+              <div class="card mr-0">
+                <h5 class="card-header bg-secondary text-light text-uppercase font-weight-bold text-center w-100">
+                  Todo</h5>
+                <div class="card-body">
+                  <p class="card-text">Personne n'a commencé à travailler sur la tâche. Elle peut toujours être
+                    modifiée afin de définir le niveau de difficulté ainsi que le détail du travail à faire.</p>
+                </div>
+              </div>
+
+
+              <div class="card mr-0">
+                <h5 class="card-header bg-primary text-light text-uppercase font-weight-bold text-center w-100">
+                  In progress</h5>
+                <div class="card-body">
+                  <p class="card-text">Un collaborateur a pris en charge la tâche et est en train de travailler
+                    dessus.</p>
+                </div>
+              </div>
+
+
+              <div class="card mr-0">
+                <h5 class="card-header bg-warning text-light text-uppercase font-weight-bold text-center w-100">
+                  Test</h5>
+                <div class="card-body">
+                  <p class="card-text">La tâche est terminée, elle doit donc être testée afin de la déclarer comme
+                    terminé.</p>
+                </div>
+              </div>
+
+
+              <div class="card mr-0">
+                <h5 class="card-header bg-success text-light text-uppercase font-weight-bold text-center w-100">
+                  Done</h5>
+                <div class="card-body">
+                  <p class="card-text">La tâche a passé les tests, il faut maintenant la faire valider afin de
+                    s'assurer qu'elle pourra être intégrée à la prochaine version.</p>
+                </div>
+              </div>
+
+
+              <div class="card">
+                <h5 class="bg-info card-header text-light text-uppercase font-weight-bold text-center w-100">
+                  Valid</h5>
+                <div class="card-body">
+                  <p class="card-text">Permet de retrouver toutes les tâches qui ont été réalisées et d'avoir des
+                    informations sur le temps passé sur chaque étape.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row pt-5 mb-5">
+    <div class="col">
+      <div class="card shadow">
+        <h2 class="bg-success text-light card-header text-center">Développeur</h2>
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-8  border-bottom">
+              <h5>GUAY Alexis</h5>
+              <p>Développeur étudiant de 20 ans, titulaire d'un BTS SIO option SLAM et actuellement en Licence professionnel MIW (2020/2021).</p>
+            </div>
+            <div class="col-sm-4  border-bottom">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">LinkedIn <i class="text-primary fa fa-linkedin"></i> : <a href="https://www.linkedin.com/in/guayalexis/" target="_blank">Guay Alexis</a> </li>
+                <li class="list-group-item">Mail : <a href="mailto:guay.alexis7@gmail.com">guay.alexis7@gmail.com</a></li>
+                <li class="list-group-item">GitHub <i class="fa fa-github"></i> : <a href="https://github.com/ag7-alexis" target="_blank">ag7-alexis</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 border-right">
+              <h5 class="text-center font-weight-bold">Front-End</h5>
+              <p>Le Front-End est fait avec <b>Angular</b> avec la précieuse aide de <b>Bootstrap</b> et de <b>AngularMaterial</b>.</p>
+            </div>
+            <div class="col-sm-4 border-right">
+              <h5 class="text-center font-weight-bold">Back-End</h5>
+              <p>La partie Back-End est une API réalisée en <b>Java</b> avec le Framework <b>Spring</b>. J'utilise principalement
+                <b>SpringBoot</b> et <b>SpringSecurity</b> pour sécuriser les requêtes vers l'API avec des <b>JWT</b>.</p>
+              <a href="https://github.com/ag7-alexis/AG7-BackEnd" target="_blank"><i class="fa fa-github"></i>Github du Back-End</a>
+            </div>
+            <div class="col-sm-4">
+              <h5 class="text-center font-weight-bold">Base de données</h5>
+              <p>J'utilise une base de données <b>PostgreSQL</b>, la persistance des données est assuré à l'aide de <b>JPA</b> et <b>Hibernate</b>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

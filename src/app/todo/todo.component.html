@@ -1,0 +1,131 @@
+<ng-container *ngIf="isLoad != 4">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="isLoad === 4">
+  <div class="row mb-4">
+    <div class="col-sm-3 mb-1 col-perso">
+      <div class="card shadow">
+        <a class="text-uppercase text-light btn btn-link text-left card-header bg-secondary font-weight-bold test2"
+           data-toggle="collapse" aria-expanded="true"
+           aria-controls="isShow" role="button" id="showMyTodo-button1" data-target="#collapse-myTodo"
+           (click)="getMyTodoShow('1')">Todo</a>
+        <div class="p-0 aff scrollbar-perso scrollbar-secondary aff-all-todo" id="showMyTodo1" style="display: block;">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item text-center">
+              <a (click)="dialogCreateTodo(idProject)"
+                 class="shadow m-1 font-weight-bold text-uppercase text-light btn btn-success"><i
+                class="fa fa-plus"></i>Ajouter</a>
+            </li>
+            <ng-container *ngIf="Todos.length === 0">
+              <li class="list-group-item text-center"><span>Aucune tâche To do</span></li>
+            </ng-container>
+            <ng-container *ngFor="let todo of Todos">
+              <li class="list-group-item todo-list-item" style="padding: .75rem .25rem;">
+                <app-simple-todo [leTodo]="todo"></app-simple-todo>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3 mb-1 col-perso">
+      <div class="card shadow">
+        <a class="text-uppercase text-light btn btn-link text-left card-header bg-primary font-weight-bold test2"
+           data-toggle="collapse" aria-expanded="true"
+           aria-controls="isShow" role="button" id="showMyTodo-button2" data-target="#collapse-myTodo"
+           (click)="getMyTodoShow('2')">In Progress</a>
+        <div class="p-0 aff scrollbar-perso scrollbar-primary aff-all-todo" id="showMyTodo2" style="display: block;">
+          <ul class="list-group list-group-flush">
+            <ng-container *ngIf="Inprogress.length === 0">
+              <li class="list-group-item text-center"><span>Aucune tâche In progress</span></li>
+            </ng-container>
+            <ng-container *ngFor="let inprogress of Inprogress">
+              <li class="list-group-item inprogress-list-item" style="padding: .75rem .25rem;">
+                <app-simple-inprogress [leInprogress]="inprogress"></app-simple-inprogress>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3 mb-1 col-perso">
+      <div class="card shadow">
+        <a class="text-uppercase text-light btn btn-link text-left card-header bg-warning font-weight-bold test2"
+           data-toggle="collapse" aria-expanded="true"
+           aria-controls="isShow" role="button" id="showMyTodo-button3" data-target="#collapse-myTodo"
+           (click)="getMyTodoShow('3')">Test</a>
+        <div class="p-0 aff scrollbar-perso scrollbar-warning aff-all-todo" id="showMyTodo3" style="display: block;">
+          <ul class="list-group list-group-flush">
+            <ng-container *ngIf="Tests.length === 0">
+              <li class="list-group-item text-center"><span>Aucune tâche Test</span></li>
+            </ng-container>
+            <ng-container *ngFor="let test of Tests">
+              <li class="list-group-item test-list-item" style="padding: .75rem .25rem;">
+                <app-simple-test [leTest]="test"></app-simple-test>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3 mb-1 col-perso">
+      <div class="card shadow">
+        <a class="text-uppercase text-light btn btn-link text-left card-header bg-success font-weight-bold test2"
+           data-toggle="collapse" aria-expanded="true"
+           aria-controls="isShow" role="button" id="showMyTodo-button4" data-target="#collapse-myTodo"
+           (click)="getMyTodoShow('4')">Done</a>
+        <div class="p-0 aff scrollbar-perso scrollbar-success aff-all-todo" id="showMyTodo4" style="display: block;">
+          <ul class="list-group list-group-flush">
+            <ng-container *ngIf="Dones.length === 0">
+              <li class="list-group-item text-center"><span>Aucune tâche Done</span></li>
+            </ng-container>
+            <ng-container *ngFor="let done of Dones">
+              <li class="list-group-item done-list-item" style="padding: .75rem .25rem;">
+                <app-simple-done [leDone]="done"></app-simple-done>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 mb-4 col-perso">
+      <div class="card shadow">
+        <a class="text-uppercase text-light btn btn-link text-left card-header bg-info font-weight-bold test2"
+           data-toggle="collapse" aria-expanded="true"
+           aria-controls="isShow" role="button" id="showMyTodo-button5" data-target="#collapse-myTodo"
+           (click)="getMyTodoShow('5')">Valid</a>
+        <div class="p-0 bg-aliceblue scrollbar-perso scrollbar-info aff-all-todo" id="showMyTodo5"
+             style="display: block; max-height: 43rem;">
+          <ng-container *ngIf="validLoad == false">
+            <div class="text-center">
+              <a class="btn btn-info text-light font-weight-bold m-4" (click)="this.getAllValid(idProject)">Charger les tâches validées</a>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="validLoad == true">
+            <ng-container *ngIf="Valids.length === 0">
+              <div class="text-center"><span>Aucune tâche Valid</span></div>
+            </ng-container>
+            <div class="card-columns mt-2">
+              <ng-container *ngFor="let valid of Valids">
+                <app-simple-valid [leValid]="valid"></app-simple-valid>
+              </ng-container>
+            </div>
+          </ng-container>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</ng-container>

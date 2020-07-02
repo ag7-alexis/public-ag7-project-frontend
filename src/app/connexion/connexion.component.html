@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card m-3">
+        <div class="card-header">
+          <h5>Connexion</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="loginForm" (submit)="login()">
+            <div class="form-group col">
+              <label for="username">Pseudo</label>
+              <input type="text" id="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                     class="form-control" formControlName="username">
+              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Pseudo obligatoire</div>
+              </div>
+            </div>
+
+            <div class="form-group col">
+              <label for="password">Mots de passe</label>
+              <input type="password" id="password" class="form-control" formControlName="password">
+            </div>
+
+            <div id="echec-conn" class="text-center" style="display: none;">
+              <p style="margin-right: 5px;" class="d-inline-block text-danger">Echec de la connexion</p>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary"> Se connecter </button>
+            </div>
+            <div class="text-center">
+              <p style="margin-right: 5px;" class="d-inline-block">Je n'ai pas de compte : </p><a class="d-inline-block" routerLink="/inscription"> m'inscrire</a>
+            </div>
+            <p class="card-text">Un compte doit être connecté pour pouvoir accéder aux fonctionnalités de gestion de projet.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

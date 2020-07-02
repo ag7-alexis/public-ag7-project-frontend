@@ -1,0 +1,37 @@
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label for="crea-{{leDone.id}}">Déplacé par</label>
+    <input id="crea-{{leDone.id}}" type="text" class="form-control col" [(ngModel)]="leDone.username" disabled>
+  </div>
+
+  <div class="form-group col-md-6">
+    <label for="date-{{leDone.id}}">Depuis</label>
+    <input id="date-{{leDone.id}}" type="date" class="form-control col" value="{{leDone.dateDebut| date:'yyyy-MM-dd'}}"
+           disabled>
+  </div>
+</div>
+
+<div class="form-row form-group">
+  <label class="col-sm-2 col-form-label" for="difficulty-{{leDone.id}}">Difficulté</label>
+  <div class=" col-sm-10">
+    <input class="form-control {{leDone.difficulty | lowercase}}-difficulty" id="difficulty-{{leDone.id}}" [(ngModel)]="leDone.difficulty" disabled>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-group col">
+    <label for="desc-{{leDone.id}}">Description</label>
+    <textarea class="form-control" [(ngModel)]="leDone.desc" id="desc-{{leDone.id}}" disabled></textarea>
+  </div>
+</div>
+<div class="form-row">
+  <div class="col-2"><a (click)="todoComponent.dialogDeleteTodo(leDone, 'done')"
+                        class="text-uppercase w-100 btn btn-danger font-weight-bold text-light"><i
+    class="fa fa-trash"></i></a></div>
+  <div class="col-4 p-0"><span class="w-100"></span></div>
+  <div class="col-6"><a (click)="todoComponent.dialogUpgradeTodo(leDone, 'done', 'valid')"
+                        class="text-uppercase w-100 btn btn-info font-weight-bold text-light"><i
+    class="fa fa-share"></i>Avancer</a></div>
+</div>
+
+

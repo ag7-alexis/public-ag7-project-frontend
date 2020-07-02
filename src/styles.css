@@ -1,0 +1,282 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(~bootstrap/dist/css/bootstrap.min.css);
+@import url(~font-awesome/css/font-awesome.css);
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+i{
+  margin-right: 3px;
+}
+body{
+  font-family: Tahoma, Geneva, sans-serif !important;
+}
+
+.mat-simple-snackbar {
+  justify-content: center !important;
+}
+
+.border-left-success{
+  border-left: .25rem solid #28a745!important;
+}
+
+.border-left-secondary{
+  border-left: .25rem solid #6c757d!important;
+}
+
+.border-left-primary {
+  border-left: .25rem solid #007bff!important;
+}
+
+.border-left-info {
+  border-left: .25rem solid #17a2b8!important;
+}
+
+.border-left-warning {
+  border-left: .25rem solid #ffc107!important;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.card-body {
+  padding: 1rem !important;
+}
+
+div.scroll-horizontal {
+  overflow: scroll;
+  white-space: nowrap;
+  overflow-y: hidden;
+}
+
+.card-perso {
+  display: inline-block !important;
+  vertical-align: top;
+  white-space: pre-wrap;
+  height: 14rem;
+}
+
+div.card-body-perso {
+  height: 100%;
+  display: block;
+}
+
+div.card-height {
+  height: 16rem;
+}
+
+div.btn-bottom {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+
+
+.test:after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-right: 1.725rem;
+  line-height: 51px;
+  font-weight: 900;
+  content: "\f107";
+  font: normal normal normal 20px/2.5 FontAwesome;
+  color: #d1d3e2;
+}
+
+.test2:after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-right: 1.725rem;
+  line-height: 51px;
+  font-weight: 900;
+  content: "\f106";
+  font: normal normal normal 20px/2.5 FontAwesome;
+  color: #d1d3e2;
+}
+
+.aff{
+  height: 46rem;
+}
+
+.aff-all-todo{
+  overflow: scroll;
+  /*white-space: nowrap;*/
+  overflow-x: hidden;
+}
+
+.scrollbar-perso::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* scrollbar track */
+.scrollbar-perso::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* scrollbar handle */
+.scrollbar-secondary::-webkit-scrollbar-thumb {
+  background-color: #6c757d;
+  background-image: linear-gradient(to top, #9da7b0 0%, #6c757d 100%);
+}
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  background-image: linear-gradient(to top, #aad2fc 0%, #007bff 100%);
+}
+
+.scrollbar-warning::-webkit-scrollbar-thumb {
+  background-color: #ffc107;
+  background-image: linear-gradient(to top, #fee394 0%, #ffc107 100%);
+}
+
+.scrollbar-success::-webkit-scrollbar-thumb {
+  background-color: #28a745;
+  background-image: linear-gradient(to top, #82f89d 0%, #28a745 100%);
+}
+
+.scrollbar-info::-webkit-scrollbar-thumb {
+  background-color: #17a2b8;
+  background-image: linear-gradient(to top, #2ab1c68c 0%, #17a2b8 100%);
+}
+
+.hard-difficulty {
+  background-color: #fe000073 !important;
+}
+
+.medium-difficulty {
+  background-color: #008eff63 !important;
+}
+
+.easy-difficulty {
+  background-color: #21ff0063 !important;
+}
+
+.inprogress-time{
+  background-color: #007bff !important;
+}
+
+.test-time{
+  background-color: #ffc107 !important;
+}
+
+.done-time{
+  background-color: #28a745 !important;
+}
+
+.form-group {
+  margin-bottom: 0.5rem !important;
+}
+
+.todo-list-item:nth-child(even) {
+  background: #f3f3f3;
+}
+
+.inprogress-list-item:nth-child(even) {
+  background: #2196f817;
+}
+
+.test-list-item:nth-child(even) {
+  background: #ffc10a17;
+}
+
+.done-list-item:nth-child(even) {
+  background: #4caf5029;
+}
+
+.bg-aliceblue {
+  background: aliceblue;
+}
+
+.home {
+  position: relative;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 77px 40px 60px;
+}
+
+.home-banner {
+  position: absolute;
+  width: 100%;
+}
+
+.home-title {
+  font-size: 6rem;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+}
+
+.home-desc {
+  font-size: 1.5rem;
+  line-height: 24px;
+  position: relative;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.home-nav {
+  margin-top: 40px;
+  position: relative;
+  text-align: center;
+}
+
+@media (min-width: 451px) {
+  .banner-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 800px) {
+  .home-title {
+    font-size: 3rem;
+    margin-top: 30px;
+  }
+
+  .home-desc {
+    font-size: 1.3rem;
+    margin-top: 30px;
+  }
+
+  .home-nav {
+    margin-top: 30px;
+  }
+
+  .home-nav a {
+    font-size: 1.3rem!important;
+  }
+}
+
+@media (max-width: 450px) {
+  .banner-desktop {
+    display: none;
+  }
+
+  .home {
+    padding: 0;
+  }
+
+  .home-title {
+    font-size: 2rem;
+    margin-top: 30px;
+  }
+
+  .home-desc {
+    font-size: 1rem;
+    margin-top: 15px;
+  }
+
+  .home-nav {
+    margin-top: 15px;
+  }
+
+  .home-nav a {
+    font-size: 1rem!important;
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,10 @@
+<h1 align="middle" mat-dialog-title>{{tokenStorage.getUser()}}</h1>
+<mat-dialog-content align="middle">
+  <p>Êtes-vous sûr de vouloir vous déconnecter ?</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>Annuler</button>
+  <button class="btn btn-danger" (click)="signOut()" cdkFocusInitial>Se déconnecter</button>
+</mat-dialog-actions>
+

@@ -1,0 +1,59 @@
+<div class="card p-1">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="crea-{{leValid.id}}">Créateur</label>
+      <input id="crea-{{leValid.id}}" type="text" class="form-control col" [(ngModel)]="leValid.username" disabled>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="difficulty-{{leValid.id}}">Difficulté</label>
+      <input class="form-control {{leValid.difficulty | lowercase}}-difficulty" id="difficulty-{{leValid.id}}"
+             [(ngModel)]="leValid.difficulty" disabled>
+
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="totalTime-{{leValid.id}}">Durée total</label>
+      <input class="form-control" id="totalTime-{{leValid.id}}"
+             value="{{getIntervalleDate(leValid.dateDebInPr, leValid.dateFinDone).day}} j
+ {{getIntervalleDate(leValid.dateDebInPr, leValid.dateFinDone).hour}} h
+ {{getIntervalleDate(leValid.dateDebInPr, leValid.dateFinDone).minute}} min" disabled>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col">
+      <label for="desc-{{leValid.id}}">Description</label>
+      <textarea class="form-control" [(ngModel)]="leValid.desc" id="desc-{{leValid.id}}" disabled></textarea>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-4 form-group">
+      <label for="InprogressTime-{{leValid.id}}" class="col-form-label">Durée In Progress</label>
+      <input class="form-control text-light inprogress-time" id="InprogressTime-{{leValid.id}}"
+             value="{{getIntervalleDate(leValid.dateDebInPr, leValid.dateFinInPr).day}} j
+ {{getIntervalleDate(leValid.dateDebInPr, leValid.dateFinInPr).hour}} h
+ {{getIntervalleDate(leValid.dateDebInPr, leValid.dateFinInPr).minute}} min" disabled>
+    </div>
+
+    <div class="form-group col-4">
+      <label for="TestTime-{{leValid.id}}" class="col-form-label">Durée Test</label>
+      <input class="form-control text-light test-time" id="TestTime-{{leValid.id}}"
+             value="{{getIntervalleDate(leValid.dateDebTest, leValid.dateFinTest).day}} j
+ {{getIntervalleDate(leValid.dateDebTest, leValid.dateFinTest).hour}} h
+ {{getIntervalleDate(leValid.dateDebTest, leValid.dateFinTest).minute}} min" disabled>
+    </div>
+
+    <div class="col-4 form-group">
+      <label for="DoneTime-{{leValid.id}}" class="col-form-label">Durée Done</label>
+      <input class="form-control text-light done-time" id="DoneTime-{{leValid.id}}"
+             value="{{getIntervalleDate(leValid.dateDebDone, leValid.dateFinDone).day}} j
+ {{getIntervalleDate(leValid.dateDebDone, leValid.dateFinDone).hour}} h
+ {{getIntervalleDate(leValid.dateDebDone, leValid.dateFinDone).minute}} min" disabled>
+    </div>
+  </div>
+
+
+</div>
+
+
+

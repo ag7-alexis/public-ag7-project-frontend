@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card m-3">
+        <h5 class="card-header">Inscription</h5>
+        <div class="card-body">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group col">
+              <label for="username">Pseudo</label>
+              <input type="text" id="username" formControlName="username" class="form-control"
+                     [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Un pseudo est nécessaire</div>
+              </div>
+            </div>
+
+            <div class="form-group col">
+              <label for="password">Mots de passe</label>
+              <input type="password" id="password" formControlName="password" class="form-control"
+                     [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Un mots de passe est nécessaire</div>
+                <div *ngIf="f.password.errors.minlength">Le mots de passe doit comporter au moins 6 caractères</div>
+              </div>
+            </div>
+            <div class="form-group col">
+              <label for="confirmPassword">Confirmation du mots de passe</label>
+              <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control"
+                     [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"/>
+              <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.required">La confirmation du mots de passe est obligatoire</div>
+                <div *ngIf="f.confirmPassword.errors.mustMatch">Les mots de passe ne sont pas identiques</div>
+              </div>
+            </div>
+
+            <div id="echec-insc" class="text-center" style="display: none;">
+              <p style="margin-right: 5px;" class="d-inline-block text-danger">Echec de l'inscription, pseudo déjà utilisé</p>
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-primary mr-1">S'inscrire</button>
+              <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
+            </div>
+            <div class="text-center">
+              <p style="margin-right: 5px;" class="d-inline-block">J'ai déjà un compte : </p><a class="d-inline-block" routerLink="/connexion"> me connecter</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label for="crea-{{leTodo.id}}">Créateur</label>
+    <input id="crea-{{leTodo.id}}" type="text" class="form-control col" [(ngModel)]="leTodo.username" disabled>
+  </div>
+
+  <div class="form-group col-md-6">
+    <label for="difficulty-{{leTodo.id}}">Difficulté</label>
+    <select class="form-control" (change)="todoComponent.updateTodo(leTodo)" id="difficulty-{{leTodo.id}}"
+            [(ngModel)]="leTodo.difficulty" disabled>
+      <option>Easy</option>
+      <option>Medium</option>
+      <option>Hard</option>
+    </select>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col">
+    <label for="desc-{{leTodo.id}}">Description</label>
+    <textarea class="form-control" (change)="todoComponent.updateTodo(leTodo)" [(ngModel)]="leTodo.desc"
+              id="desc-{{leTodo.id}}" disabled></textarea>
+  </div>
+</div>
+<div class="form-row">
+  <div class="col-2"><a (click)="todoComponent.dialogDeleteTodo(leTodo, 'todo')"
+                        class="text-uppercase w-100 btn btn-danger font-weight-bold text-light"><i
+    class="fa fa-trash"></i></a></div>
+  <div class="col-4 p-0"><a style="padding: .375rem 0.15rem;" (click)="ActiveEdit(leTodo.id)"
+                            class="text-uppercase w-100 btn btn-warning font-weight-bold text-light"><i
+    class="fa fa-edit"></i>Modifier</a></div>
+  <div class="col-6"><a (click)="todoComponent.dialogUpgradeTodo(leTodo, 'todo', 'inprogress')"
+                        class="text-uppercase w-100 btn btn-primary font-weight-bold text-light"><i
+    class="fa fa-share"></i>Avancer</a></div>
+</div>
+
+
+

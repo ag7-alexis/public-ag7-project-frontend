@@ -1,0 +1,9 @@
+<h1 align="middle" mat-dialog-title>{{data.state}}</h1>
+<mat-dialog-content align="middle">
+  <p>Êtes-vous sûr de vouloir faire avancer cette tâche <b>{{data.state}}</b> à l'état <b>{{data.next}}</b> ?</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>Annuler</button>
+  <button class="btn btn-success" [mat-dialog-close]="true" cdkFocusInitial>Confirmer</button>
+</mat-dialog-actions>

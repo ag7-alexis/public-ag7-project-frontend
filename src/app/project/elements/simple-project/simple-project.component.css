@@ -1,0 +1,19 @@
+p.card-text {
+  display: block;
+  display: -webkit-box;
+  max-width: 17rem;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+h5.card-title {
+  display: block;
+  display: -webkit-box;
+  max-width: 17rem;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

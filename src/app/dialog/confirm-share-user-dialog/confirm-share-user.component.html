@@ -1,0 +1,10 @@
+<h1 align="middle" mat-dialog-title>{{data.project.titre}}</h1>
+<mat-dialog-content align="middle">
+  <p>Êtes-vous sûr de vouloir accorder l'accès au project <b>{{data.project.titre}}</b> à l'utilisateur <b>{{data.username}}</b> ?</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>Annuler</button>
+  <button class="btn btn-success" [mat-dialog-close]="true" cdkFocusInitial>Confirmer</button>
+</mat-dialog-actions>
+

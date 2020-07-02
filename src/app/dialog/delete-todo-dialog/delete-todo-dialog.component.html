@@ -1,0 +1,9 @@
+<h1 align="middle" mat-dialog-title>Supprimer</h1>
+<mat-dialog-content align="middle">
+  <p>Êtes-vous sûr de vouloir supprimer cette tâche ?</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>Annuler</button>
+  <button class="btn btn-danger" [mat-dialog-close]="true" cdkFocusInitial>Confirmer</button>
+</mat-dialog-actions>

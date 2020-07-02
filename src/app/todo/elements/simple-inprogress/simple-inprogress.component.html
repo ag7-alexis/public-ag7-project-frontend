@@ -1,0 +1,37 @@
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label for="crea-{{leInprogress.id}}">Déplacé par</label>
+    <input id="crea-{{leInprogress.id}}" type="text" class="form-control col" [(ngModel)]="leInprogress.username" disabled>
+  </div>
+
+  <div class="form-group col-md-6">
+    <label for="date-{{leInprogress.id}}">Depuis</label>
+    <input id="date-{{leInprogress.id}}" type="date" class="form-control col" value="{{leInprogress.dateDebut| date:'yyyy-MM-dd'}}"
+           disabled>
+  </div>
+</div>
+
+<div class="form-row form-group">
+  <label class="col-sm-2 col-form-label" for="difficulty-{{leInprogress.id}}">Difficulté</label>
+  <div class=" col-sm-10">
+    <input class="form-control {{leInprogress.difficulty | lowercase}}-difficulty" id="difficulty-{{leInprogress.id}}" [(ngModel)]="leInprogress.difficulty" disabled>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col">
+    <label for="desc-{{leInprogress.id}}">Description</label>
+    <textarea class="form-control" [(ngModel)]="leInprogress.desc" id="desc-{{leInprogress.id}}" disabled></textarea>
+  </div>
+</div>
+<div class="form-row">
+  <div class="col-2"><a (click)="todoComponent.dialogDeleteTodo(leInprogress, 'inprogress')"
+                        class="text-uppercase w-100 btn btn-danger font-weight-bold text-light"><i
+    class="fa fa-trash"></i></a></div>
+  <div class="col-4 p-0"><span class="w-100"></span></div>
+  <div class="col-6"><a (click)="todoComponent.dialogUpgradeTodo(leInprogress, 'inprogress', 'test')"
+                        class="text-uppercase w-100 btn btn-warning font-weight-bold text-light"><i
+    class="fa fa-share"></i>Avancer</a></div>
+</div>
+
+
+

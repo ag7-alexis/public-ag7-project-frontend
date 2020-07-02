@@ -1,0 +1,236 @@
+<ng-container *ngIf="isLoad != 2">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-container>
+
+<div *ngIf="!!this.tokenStorage.getToken() && isLoad === 2" style="margin-top: 20px;">
+  <!-- Projet selectionné -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow p-2 mb-4" *ngIf="!!activeProject">
+        <div class="row">
+          <div class="col-sm-8">
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="titre">Titre</label>
+                <input id="titre" type="text" class="form-control col" [(ngModel)]="activeProject.titre"
+                       (change)="saveProject(activeProject)" disabled>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="dateCrea">Date de création</label>
+                <input id="dateCrea" type="date" class="form-control col"
+                       value="{{activeProject.dateCrea | date:'yyyy-MM-dd'}}" disabled>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="Createur">Créateur</label>
+                <input id="Createur" type="texte" class="form-control col" value="{{activeProject.username}}"
+                       disabled>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="desc">Description</label>
+              <textarea maxlength="500" id="desc" style="max-height: 5rem;" class="form-control"
+                        (change)="saveProject(activeProject)"
+                        [(ngModel)]="activeProject.desc" disabled></textarea>
+            </div>
+
+            <div class="card-deck text-center">
+              <div class="card shadow border-left-secondary">
+                <div class="card-body p-1">
+                  <div class="row align-items-center no-gutters">
+                    <div class="col mr-2">
+                      <div class="text-uppercase text-secondary font-weight-bold text-xs mb-1">
+                        <span>To Do</span>
+                      </div>
+                      <div class="text-dark font-weight-bold h5 mb-0">
+                        <span>{{activeProject.nbTodo}}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="card shadow border-left-primary">
+                <div class="card-body p-1">
+                  <div class="row align-items-center no-gutters">
+                    <div class="col mr-2">
+                      <div class="text-uppercase text-primary font-weight-bold text-xs mb-1">
+                        <span>In Progress</span>
+                      </div>
+                      <div class="text-dark font-weight-bold h5 mb-0">
+                        <span>{{activeProject.nbInProgress}}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="card shadow border-left-warning">
+                <div class="card-body p-1">
+                  <div class="row align-items-center no-gutters">
+                    <div class="col mr-2">
+                      <div class="text-uppercase text-warning font-weight-bold text-xs mb-1">
+                        <span>Test</span>
+                      </div>
+                      <div class="text-dark font-weight-bold h5 mb-0">
+                        <span>{{activeProject.nbTest}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card shadow border-left-success">
+                <div class="card-body p-1">
+                  <div class="row align-items-center no-gutters">
+                    <div class="col mr-2">
+                      <div class="text-uppercase text-success font-weight-bold text-xs mb-1">
+                        <span>Done</span>
+                      </div>
+                      <div class="text-dark font-weight-bold h5 mb-0">
+                        <span>{{activeProject.nbDone}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card shadow border-left-info">
+                <div class="card-body p-1">
+                  <div class="row align-items-center no-gutters">
+                    <div class="col mr-2">
+                      <div class="text-uppercase text-info font-weight-bold text-xs mb-1">
+                        <span>Valid</span>
+                      </div>
+                      <div class="text-dark font-weight-bold h5 mb-0">
+                        <span>{{activeProject.nbValid}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-1 text-center">
+              <ng-container *ngIf="activeProject.username === tokenStorage.getUser()">
+                <a (click)="dialogDeleteProject(activeProject)"
+                   class="shadow m-1 col-sm-3 font-weight-bold text-uppercase text-light btn btn-danger"><i
+                  class="fa fa-trash"></i>Supprimer</a>
+              </ng-container>
+              <ng-container *ngIf="activeProject.username === tokenStorage.getUser()">
+                <a (click)="activeEdit()"
+                   class="shadow m-1 col-sm-3 font-weight-bold text-uppercase text-light btn btn-warning"><i
+                  class="fa fa-edit"></i>Modifier</a>
+              </ng-container>
+              <ng-container>
+                <a routerLink="/todo/{{activeProject.id}}"
+                   class="shadow m-1 col-sm-3 font-weight-bold text-uppercase text-light btn btn-success"><i
+                  class="fa fa-tachometer"></i>Organiser les tâches</a>
+              </ng-container>
+            </div>
+
+          </div>
+
+          <div class="col-sm-2">
+            <h6>Ajouter un utilisateur</h6>
+
+            <div class="input-group md-form form-sm form-2 pl-0 mb-2">
+              <input class="form-control my-0 py-1" type="text" placeholder="Rechercher" aria-label="Rechercher"
+                     (change)="searchUsers(usernameSearch)" [(ngModel)]="usernameSearch">
+              <div class="input-group-append">
+    <span class="bg-primary input-group-text lighten-3" id="basic-text1"><i class="text-light fa fa-search"
+                                                                            aria-hidden="true"></i></span>
+              </div>
+            </div>
+            <ul class="list-group list-group-flush" style="max-height: 15.2rem; overflow: auto;">
+              <ng-container *ngIf="isSearch === true && UsersFound.length === 0">
+                <li class="list-group-item"><span>Aucun utilisateur trouvé</span></li>
+              </ng-container>
+              <ng-container *ngFor="let userFound of UsersFound">
+                <li class="list-group-item"><a class="cursor-pointer"
+                                               (click)="dialogConfirmShareUser(userFound.username, activeProject)"><span>{{userFound.username}}</span><i
+                  class="pull-right text-success fa fa-share" style="font-size: 24px;"></i></a></li>
+              </ng-container>
+            </ul>
+          </div>
+
+          <div class="col-sm-2">
+            <h6>Utilisateurs partagés</h6>
+            <ul class="list-group list-group-flush" style="max-height: 18rem; overflow: auto;">
+              <ng-container *ngIf="UsersShared.length === 0">
+                <li class="list-group-item"><span>Aucun utilisateur</span></li>
+              </ng-container>
+              <ng-container *ngFor="let user of UsersShared">
+                <li class="list-group-item"><span>{{user.username}}</span><i
+                  (click)="dialogDeleteSharedUser(user, activeProject)" style="font-size: 24px;"
+                  class="pull-right text-danger fa fa-times-circle"></i></li>
+              </ng-container>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--  Mes Projets-->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow mb-4">
+        <a class="text-uppercase text-primary btn btn-link text-left card-header font-weight-bold test2"
+           data-toggle="collapse" aria-expanded="true"
+           aria-controls="isShow" role="button" id="showMyProject-button1" data-target="#collapse-myProject"
+           (click)="getMyProjectShow('1')">Tous vos projets</a>
+        <div class="collapse scroll-horizontal" id="showMyProject1" style="display: block; max-height: 25rem;">
+          <div class="card-body">
+            <div class="card card-perso d-inline-block text-center mr-1 border-success bg-transparent text-success"
+                 style="width: 18rem;">
+              <div class="card-body card-body-perso">
+                <h5 class="card-title">Nouveau</h5>
+                <p class="card-text">Créer un nouveau projet</p>
+                <div class="d-block btn-bottom">
+                  <a (click)="dialogCreateProject()" class="font-weight-bold text-uppercase btn btn-success text-light"><i
+                    class="fa fa-plus"></i>Ajouter</a>
+                </div>
+              </div>
+            </div>
+            <ng-container *ngFor="let project of MyProjects">
+              <app-simple-project [leProjet]="project"></app-simple-project>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Mes Projets Partagés-->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow mb-4">
+        <a class="text-uppercase text-primary btn btn-link text-left card-header font-weight-bold test2"
+           data-toggle="collapse" aria-expanded="true"
+           aria-controls="isShow" role="button" id="showMyProject-button2" data-target="#collapse-myProject"
+           (click)="getMyProjectShow('2')">Tous les projets partagés</a>
+        <div class="collapse scroll-horizontal" id="showMyProject2" style="display: block;">
+          <div class="card-body">
+            <ng-container *ngIf="MyProjectsShared.length === 0">
+              <div class="text-center">
+                <span>Aucun projet ne vous est partagé.</span>
+              </div>
+            </ng-container>
+            <ng-container *ngFor="let projectShared of MyProjectsShared">
+              <app-simple-project [leProjet]="projectShared"></app-simple-project>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
